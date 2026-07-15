@@ -4,6 +4,12 @@ import dotenv from "dotenv";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 dotenv.config();
+app.get("/", (req, res) => {
+  res.json({
+    status: "ok",
+    message: "Study Assistant API is running 🚀"
+  });
+});
 
 const app = express();
 app.use(cors());
