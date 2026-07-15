@@ -4,6 +4,10 @@ import dotenv from "dotenv";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 dotenv.config();
+
+const app = express();
+app.use(cors());
+app.use(express.json({ limit: "1mb" }));
 app.get("/", (req, res) => {
   res.json({
     status: "ok",
@@ -11,9 +15,6 @@ app.get("/", (req, res) => {
   });
 });
 
-const app = express();
-app.use(cors());
-app.use(express.json({ limit: "1mb" }));
 
 const PORT = process.env.PORT || 8787;
 const API_KEY = process.env.GEMINI_API_KEY;
