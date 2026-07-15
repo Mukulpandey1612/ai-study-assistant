@@ -100,10 +100,9 @@ study-assistant/
 
 ### 1. Clone the repo
 
-<!-- ```bash
-# git clone https://github.com/Mukulpandey1612/study-assistant.git
-cd study-assistant
-``` -->
+```bash
+git clone https://github.com/Mukulpandey1612/ai-study-assistant.git
+```
 
 ### 2. Get a Gemini API key
 
@@ -114,26 +113,16 @@ Free tier available at [Google AI Studio](https://aistudio.google.com/apikey).
 ```bash
 cd server
 npm install
-cp .env.example .env
-# edit .env and add: GEMINI_API_KEY=your_key_here
 npm run dev
 ```
 
-<!-- Backend runs on `http://localhost:8787`. -->
 
 ### 4. Set up the frontend
 
 ```bash
-# from the project root, in a separate terminal
 npm install
-cp .env.example .env
-# defaults to VITE_API_BASE_URL=http://localhost:8787
 npm run dev
 ```
-
-<!-- Frontend runs on `http://localhost:5173`. -->
-
-
 
 ---
 
@@ -150,26 +139,6 @@ This was the primary evaluation criterion for the assignment, so it's documented
 | Slow response | 25s server-side timeout via `AbortController`, returns a clear timeout error |
 | Failed request / rate limit | Renders the `ErrorState` component with a retry button — never a crash or infinite spinner |
 | Stale response race | Request-id counter + `AbortController` ensures an older response can never overwrite a newer one |
-
-<!-- --- -->
-
-<!-- ## Known Limitations
-
-* No persistence — refreshing the page loses the current set (session save/reload was a stretch goal, not implemented)
-* No streaming — the full set renders at once rather than incrementally
-* Quiz option shuffling uses `Array.sort(() => Math.random() - 0.5)`, not a true Fisher–Yates shuffle
-* No automated test suite
-* Backend endpoint is unauthenticated with no rate limiting — fine for a take-home demo, not production-ready as-is -->
-
-<!-- 
----
-
-## AI Usage Note
-
-Claude was used to scaffold the project (Vite/Express setup, JSON validation logic, the stale-response-guarding hook, and CSS), and to debug a series of Gemini model deprecations encountered mid-build. All logic — prompt design, validation rules, and the quiz retest flow — was reviewed and can be walked through and extended live.
-
---- -->
-
 
 ---
 
